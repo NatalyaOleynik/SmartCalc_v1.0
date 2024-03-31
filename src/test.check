@@ -1,0 +1,322 @@
+#include "SmartCalc.h"
+
+
+#test test_1
+char *str = "3+5";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+double result = 3 + 5;
+ck_assert_double_eq_tol(result, answer, 1e-7);
+ck_assert_int_eq(res, OK);
+
+#test test_2
+char *str = "10-5";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+double result = 10 - 5;
+ck_assert_double_eq_tol(result, answer, 1e-7);
+ck_assert_int_eq(res, OK);
+
+#test test_3
+char *str = "5*8";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+double result = 5 * 8;
+ck_assert_double_eq_tol(result, answer, 1e-7);
+ck_assert_int_eq(res, OK);
+
+#test test_4
+char *str = "100/25";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+double result = 100 / 25;
+ck_assert_double_eq_tol(result, answer, 1e-7);
+ck_assert_int_eq(res, OK);
+
+#test test_5
+char *str = "100.25/1.35";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+double result = 100.25 / 1.35;
+ck_assert_double_eq_tol(result, answer, 1e-7);
+ck_assert_int_eq(res, OK);
+
+#test test_6
+char *str = "15/0";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+ck_assert_int_eq(res, ERROR);
+
+#test test_7
+char *str = "3^3";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+double result = pow(3, 3);
+ck_assert_double_eq_tol(result, answer, 1e-7);
+ck_assert_int_eq(res, OK);
+
+#test test_8
+char *str = "100mod15";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+double result = 100 % 15;
+ck_assert_double_eq_tol(result, answer, 1e-7);
+ck_assert_int_eq(res, OK);
+
+#test test_9
+char *str = "100mod0";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+ck_assert_int_eq(res, ERROR);
+
+#test test_10
+char *str = "cos(1)";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+double result = cos(1);
+ck_assert_double_eq_tol(result, answer, 1e-7);
+ck_assert_int_eq(res, OK);
+
+#test test_11
+char *str = "sin(1)";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+double result = sin(1);
+ck_assert_double_eq_tol(result, answer, 1e-7);
+ck_assert_int_eq(res, OK);
+
+#test test_12
+char *str = "tan(1)";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+double result = tan(1);
+ck_assert_double_eq_tol(result, answer, 1e-7);
+ck_assert_int_eq(res, OK);
+
+#test test_13
+char *str = "asin(1)";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+double result = asin(1);
+ck_assert_double_eq_tol(result, answer, 1e-7);
+ck_assert_int_eq(res, OK);
+
+
+#test test_14
+char *str = "atan(1)";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+double result = atan(1);
+ck_assert_double_eq_tol(result, answer, 1e-7);
+ck_assert_int_eq(res, OK);
+
+
+#test test_15
+char *str = "sqrt(5)";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+double result = sqrt(5);
+ck_assert_double_eq_tol(result, answer, 1e-7);
+ck_assert_int_eq(res, OK);
+
+#test test_16
+char *str = "3+sqrt(-5)";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+ck_assert_int_eq(res, ERROR);
+
+#test test_17
+char *str = "ln(5)";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+double result = log(5);
+ck_assert_double_eq_tol(result, answer, 1e-7);
+ck_assert_int_eq(res, OK);
+
+#test test_18
+char *str = "ln(-5)";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+ck_assert_int_eq(res, ERROR);
+
+#test test_19
+char *str = "log(5)";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+double result = log10(5);
+ck_assert_double_eq_tol(result, answer, 1e-7);
+ck_assert_int_eq(res, OK);
+
+#test test_20
+char *str = "log(-5)";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+ck_assert_int_eq(res, ERROR);
+
+#test test_21
+char *str = "(mod2*3)";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+ck_assert_int_eq(res, ERROR);
+
+#test test_22
+char *str = "(3+4)(mod2*3)";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+ck_assert_int_eq(res, ERROR);
+
+#test test_23
+char *str = "x(2+3)";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+ck_assert_int_eq(res, ERROR);
+
+#test test_24
+char *str = "xcos(1)*6";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+ck_assert_int_eq(res, ERROR);
+
+#test test_25
+char *str = "4x";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+ck_assert_int_eq(res, ERROR);
+
+#test test_26
+char *str = "88-5.45.7*6";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+ck_assert_int_eq(res, ERROR);
+
+#test test_27
+char *str = "(+15-8)";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+double result = (+ 15 - 8);
+ck_assert_double_eq_tol(result, answer, 1e-7);
+ck_assert_int_eq(res, OK);
+
+#test test_28
+char *str = "sin1";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+ck_assert_int_eq(res, ERROR);
+
+#test test_29
+char *str = "5*mod2";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+ck_assert_int_eq(res, ERROR);
+
+#test test_30
+char *str = "5mod.2";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+ck_assert_int_eq(res, ERROR);
+
+#test test_31
+char *str = "(15+5)28";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+ck_assert_int_eq(res, ERROR);
+
+#test test_32
+char *str = "16(sin(1))";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+ck_assert_int_eq(res, ERROR);
+
+#test test_33
+char *str = "5.(18-7)";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+ck_assert_int_eq(res, ERROR);
+
+#test test_34
+char *str = "acos(1)";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+double result = acos(1);
+ck_assert_double_eq_tol(result, answer, 1e-7);
+ck_assert_int_eq(res, OK);
+
+#test test_35
+char *str = "5.25+x";
+double x = 3.25;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+double result = 5.25 + x;
+ck_assert_double_eq_tol(result, answer, 1e-7);
+ck_assert_int_eq(res, OK);
+
+#test test_36
+char *str = "5*((18-7)";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+ck_assert_int_eq(res, ERROR);
+
+#test test_37
+char *str = "5*kos(18-7)";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+ck_assert_int_eq(res, ERROR);
+
+#test test_38
+char *str = "5 * cos(18 - 7)";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+double result = 5 * cos(18 - 7);
+ck_assert_double_eq_tol(result, answer, 1e-7);
+ck_assert_int_eq(res, OK);
+
+#test test_39
+char *str = "3678729975.8765434357877+4567898765.73346789-7654322345.38724356572           *34567890.987654/23456789.09876543        32676218.738676534(452476290+4567890)         -3578279829080(67237892-76278839)*66377893.9387673689839090+97387836928309809383.38798379380";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+ck_assert_int_eq(res, ERROR);
+
+#test test_40
+char *str = "5*(18-7)log(1)";
+double x = 0.0;
+double answer = 0.0;
+int res = calculator(str, x, &answer);
+ck_assert_int_eq(res, ERROR);

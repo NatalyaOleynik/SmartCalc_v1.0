@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Graph</class>
+ <widget class="QWidget" name="Graph">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>636</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Graph</string>
+  </property>
+  <widget class="QCustomPlot" name="widget" native="true">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>12</x>
+     <y>12</y>
+     <width>351</width>
+     <height>331</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_Draw">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>150</y>
+     <width>100</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	background-color: orange;
+	color: black;
+	border-radius: 10px;
+}
+QPushButton:pressed {
+	background-color: orange;
+	color: white;
+}
+
+</string>
+   </property>
+   <property name="text">
+    <string>Draw</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="expression_show">
+   <property name="geometry">
+    <rect>
+     <x>123</x>
+     <y>410</y>
+     <width>501</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+ 	qproperty-alignment: 'AlignVCentert';
+	color: black;
+
+
+background-color: white;
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="error">
+   <property name="geometry">
+    <rect>
+     <x>402</x>
+     <y>220</y>
+     <width>201</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+ 	qproperty-alignment: 'AlignVCentert';
+	color: black;
+
+
+background-color: white;
+}</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>20</y>
+     <width>199</width>
+     <height>118</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLabel" name="label_xmin">
+        <property name="text">
+         <string>x_min</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_xmax">
+        <property name="text">
+         <string>x_max</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_ymin">
+        <property name="text">
+         <string>y_min</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_ymax">
+        <property name="text">
+         <string>y_max</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QLineEdit" name="xmin">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+ 	qproperty-alignment: 'AlignVCenter | AlignRight';
+	color: black;
+
+
+background-color: white;
+}</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="xmax">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+ 	qproperty-alignment: 'AlignVCenter | AlignRight';
+	color: black;
+
+
+background-color: white;
+}</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="ymin">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+ 	qproperty-alignment: 'AlignVCenter | AlignRight';
+	color: black;
+
+
+background-color: white;
+}</string>
+        </property>
+        <property name="readOnly">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="ymax">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+ 	qproperty-alignment: 'AlignVCenter | AlignRight';
+	color: black;
+
+
+background-color: white;
+}</string>
+        </property>
+        <property name="readOnly">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>410</y>
+     <width>113</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+ 	qproperty-alignment: 'AlignVCentert';
+	color: black;
+
+
+background-color: white;
+}</string>
+   </property>
+   <property name="text">
+    <string>          y =</string>
+   </property>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QCustomPlot</class>
+   <extends>QWidget</extends>
+   <header>qcustomplot.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
